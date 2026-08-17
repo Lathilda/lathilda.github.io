@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lathilda — Instruments for very large data</title>
+<meta name="description" content="An independent lab building instruments for data that has outgrown the tools built to look at it. GPU rendering, the pipelines that feed it, and Garden.">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Lathilda">
+<meta property="og:description" content="Most data is never actually looked at. We build the instruments that would let you.">
+<meta property="og:type" content="website">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("lathilda-theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) { /* storage unavailable; the media query decides */ }
+  })();
+</script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="shell">
+    <a class="wordmark" href="/"><span class="aperture" aria-hidden="true"></span>Lathilda</a>
+    <nav aria-label="Primary">
+      <a href="#about" data-optional>About</a>
+      <a href="#garden">Garden</a>
+      <a href="#studies">Studies</a>
+      <a href="#engine" data-optional>Engine</a>
+      <a href="#academy" data-optional>Academy</a>
+      <button class="toggle" id="theme" type="button" aria-label="Switch colour theme">Theme</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <p class="label">Independent research lab · Madrid</p>
+        <h1>Most data is never <em>actually looked at.</em></h1>
+        <p class="hero-lede">
+          It doesn't fit. Tools give up somewhere around a hundred thousand
+          points, so people sample, aggregate, and hope the part they threw
+          away didn't matter. We build instruments that move that boundary.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#garden">See Garden</a>
+          <a class="btn ghost" href="#about">What this is</a>
+        </div>
+      </div>
+
+      <figure class="instrument">
+        <div class="instrument-head">
+          <span>Density field · single frame</span>
+          <span class="live"><i aria-hidden="true"></i>rendering</span>
+        </div>
+        <canvas class="plot" id="field" width="760" height="520" role="img"
+                aria-label="A dense field of several hundred thousand plotted points forming a continuously deforming mathematical attractor."></canvas>
+        <dl class="instrument-foot">
+          <div><dt>points / frame</dt><dd id="f-pts">0</dd></div>
+          <div><dt>frame</dt><dd id="f-ms">— ms</dd></div>
+          <div><dt>peak density</dt><dd id="f-peak">0</dd></div>
+        </dl>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section class="section" id="about">
+    <div class="shell">
+      <div class="section-head reveal">
+        <p class="label"><span class="n">01</span> &nbsp;/&nbsp; About</p>
+        <h2>A lab that mostly builds the microscope</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="prose reveal">
+          <p class="lead">
+            Lathilda is a small independent lab. We build instruments for data
+            that has outgrown the tools built to look at it — and then we use
+            them on real questions.
+          </p>
+          <p>
+            The unglamorous truth about large datasets is that nobody sees
+            them. A scatter plot of ten million rows is either a solid black
+            rectangle or a sample of forty thousand of them wearing a hat. So
+            the standard move is to aggregate first and look second, which
+            means every interesting thing that was smaller than the bucket you
+            chose is gone before anyone looked.
+          </p>
+          <p>
+            Getting past that is only half a graphics problem. The other half is
+            plumbing: formats, indexes, streaming, and deciding what not to
+            load. We find this half genuinely interesting, which we accept is
+            an unusual position.
+          </p>
+          <p>
+            We publish studies alongside the tools. Some use our engine. Some
+            don't. The instruments exist to make questions answerable, not to
+            be in every answer.
+          </p>
+        </div>
+
+        <dl class="facts reveal">
+          <div class="fact"><dt>Founded</dt><dd>2026</dd></div>
+          <div class="fact"><dt>Location</dt><dd>Madrid, ES</dd></div>
+          <div class="fact"><dt>Headcount</dt><dd>1 <span class="accent">+ agents</span></dd></div>
+          <div class="fact"><dt>Products</dt><dd>1 <span class="accent">alpha</span></dd></div>
+          <div class="fact"><dt>Active studies</dt><dd>2</dd></div>
+          <div class="fact"><dt>Substrate</dt><dd>WebGPU</dd></div>
+          <div class="fact"><dt>Retracted</dt><dd>0 <span class="accent">so far</span></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GARDEN ==================== -->
+  <section class="section" id="garden">
+    <div class="shell">
+      <div class="section-head reveal">
+        <p class="label"><span class="n">02</span> &nbsp;/&nbsp; Product</p>
+        <h2>Every analysis is a choice. Garden runs the ones you didn’t make.</h2>
+        <p>
+          A result is the product of a hundred small decisions — which controls,
+          which window, which estimator, which outlier rule. Change one and the
+          number moves. Garden runs the whole space and shows you the
+          distribution instead of the single number you happened to land on.
+        </p>
+      </div>
+
+      <div class="product reveal">
+        <div class="product-head">
+          <h3 class="product-name">Garden</h3>
+          <span class="badge">Alpha · in development</span>
+        </div>
+
+        <div class="product-body">
+          <div class="product-copy">
+            <p class="lead">
+              Robustness analysis is a method everyone agrees with and almost
+              nobody runs, because running it multiplies the compute by a
+              thousand.
+            </p>
+            <p>
+              So we put it on the GPU and in the browser. Declare your model and
+              the choices you could have made; Garden enumerates the space,
+              executes it, and renders the result as a distribution you can
+              interrogate — <em>with no install and no cluster</em>.
+            </p>
+            <p>
+              The method is domain-agnostic; analytical flexibility is not an
+              economics problem. Economics is simply where we start, because
+              it's where we have the data and the judgement to know when an
+              answer is wrong.
+            </p>
+            <div class="chips">
+              <span class="chip">specification curves</span>
+              <span class="chip">multiverse analysis</span>
+              <span class="chip">GPU-executed</span>
+              <span class="chip">provenance-carrying</span>
+            </div>
+          </div>
+
+          <figure class="spec-figure">
+            <canvas class="plot" id="spec" width="820" height="440" role="img"
+                    aria-label="A specification curve. Two thousand and forty-eight model specifications sorted by estimated effect size; a large share of them cross zero."></canvas>
+            <figcaption class="spec-cap">
+              <span>2,048 specifications · sorted by effect</span>
+              <span>illustrative</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STUDIES ==================== -->
+  <section class="section" id="studies">
+    <div class="shell">
+      <div class="section-head reveal">
+        <p class="label"><span class="n">03</span> &nbsp;/&nbsp; Studies</p>
+        <h2>Bounded questions that state what they failed to establish</h2>
+        <p>
+          Each study names one question, one substrate and one limit. Some use
+          our own instruments. Some have nothing to do with them.
+        </p>
+      </div>
+
+      <div class="studies reveal">
+
+        <article class="study">
+          <div class="study-id">Study 001</div>
+          <div class="study-body">
+            <h3>Cascade Field</h3>
+            <p>
+              How local conditions and a handful of long-range links decide
+              whether a small disturbance dies out or takes the whole field.
+              Deterministic, replayable from its seed, and every run is a URL
+              you can send to someone.
+            </p>
+            <p class="study-limit">
+              Limit — a synthetic rule system. It models no real contagion
+              process and is not evidence about one.
+            </p>
+          </div>
+          <div class="study-state">
+            <span class="state is-review">In review</span>
+            <span class="study-meta">Engine · interactive</span>
+          </div>
+        </article>
+
+        <article class="study">
+          <div class="study-id">Study 002</div>
+          <div class="study-body">
+            <h3>When overlapping windows invent predictability</h3>
+            <p>
+              On data with provably no signal, a random split of overlapping
+              windows reports 66.0% accuracy against a 39.8% baseline. A purged
+              split reports 32.9%. One analytical choice, two opposite
+              conclusions — and a closed-form ceiling on how much accuracy the
+              choice can manufacture.
+            </p>
+            <p class="study-limit">
+              Limit — synthetic order-book data. It says nothing about whether
+              any real market is predictable.
+            </p>
+          </div>
+          <div class="study-state">
+            <span class="state is-live">Published</span>
+            <span class="study-meta">No engine used</span>
+          </div>
+        </article>
+
+        <article class="study">
+          <div class="study-id">Study 003</div>
+          <div class="study-body">
+            <h3>Real-time macro, vintage by vintage</h3>
+            <p>
+              Reconstructing what was actually knowable at each historical
+              moment, and asking how much published macro-finance survives
+              being restricted to the data that existed at the time.
+            </p>
+            <p class="study-limit">
+              Limit — four euro-area series, frozen and hashed. No empirical
+              finding claimed yet.
+            </p>
+          </div>
+          <div class="study-state">
+            <span class="state is-open">Study 0</span>
+            <span class="study-meta">Garden consumer</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ENGINE ==================== -->
+  <section class="section" id="engine">
+    <div class="shell">
+      <div class="section-head reveal">
+        <p class="label"><span class="n">04</span> &nbsp;/&nbsp; Engine</p>
+        <h2>Where the boundary actually is</h2>
+        <p>
+          Interactive graph rendering in a browser plateaus around a hundred
+          thousand nodes. Native tools reach millions. Closing that gap is a
+          rendering problem, a layout problem and a data problem in roughly
+          equal measure — which is why so few people work on all three.
+        </p>
+      </div>
+
+      <div class="grid-3 reveal">
+        <div class="cell">
+          <h3>Render</h3>
+          <p>
+            A WebGPU compute-and-render core. Typed state in, one draw call out.
+            Verified bit-exact against its CPU reference at zero epsilon, so a
+            result doesn't change when the hardware does.
+          </p>
+          <p class="cell-note">WebGPU · f32 parity under fast-math</p>
+        </div>
+
+        <div class="cell">
+          <h3>Pipeline</h3>
+          <p>
+            Formats, spatial indexes, chunked streaming and level of detail. The
+            goal is simple to state and awkward to achieve: decouple how much
+            data exists from how much has to be resident.
+          </p>
+          <p class="cell-note">The half nobody demos</p>
+        </div>
+
+        <div class="cell">
+          <h3>Layout</h3>
+          <p>
+            Force-directed layout falls over on high-degree nodes, where a
+            single hub serialises the whole computation. That specific failure
+            is the current object of study.
+          </p>
+          <p class="cell-note">Open problem · in progress</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ACADEMY ==================== -->
+  <section class="section" id="academy">
+    <div class="shell">
+      <div class="section-head reveal">
+        <p class="label"><span class="n">05</span> &nbsp;/&nbsp; Academy</p>
+        <h2>Explaining the machinery, once it has earned it</h2>
+      </div>
+
+      <div class="academy-grid">
+        <div class="prose reveal">
+          <p>
+            Every mechanism we get working has to be explained twice: once in
+            the precise vocabulary that lets a specialist check it, and once in
+            plain language that is still true. If the two versions contradict
+            each other, we don't understand it well enough to publish either.
+          </p>
+          <p>
+            The Academy is where the second version lives — written after the
+            evidence is accepted, never as a substitute for it.
+          </p>
+        </div>
+
+        <div class="ledger reveal">
+          <div class="ledger-row"><span class="lx">01</span><span class="lt">GPU determinism under fast-math</span><span class="ls ok">drafted</span></div>
+          <div class="ledger-row"><span class="lx">02</span><span class="lt">Why a negative test is hard to build honestly</span><span class="ls ok">drafted</span></div>
+          <div class="ledger-row"><span class="lx">03</span><span class="lt">What a specification curve actually shows</span><span class="ls">queued</span></div>
+          <div class="ledger-row"><span class="lx">04</span><span class="lt">Drawing a million points without lying</span><span class="ls">queued</span></div>
+          <div class="ledger-row"><span class="lx">05</span><span class="lt">Thresholds, cascades and long-range links</span><span class="ls">queued</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <div class="shell colophon-grid">
+    <div>
+      <p class="label" style="margin-bottom:1rem">Lathilda</p>
+      <p>
+        Independent research on large-scale visual computing, the data
+        engineering beneath it, and what becomes answerable once the looking
+        gets cheap. Work is published when it is finished and its limits are
+        written down — and not before.
+      </p>
+      <p class="legal">Madrid · 40.4168° N / 3.7038° W</p>
+    </div>
+    <div class="links">
+      <a href="https://joshuadefreitas.github.io">Joshua de Freitas</a>
+      <a href="https://github.com/joshuadefreitas">GitHub</a>
+      <a href="#garden">Garden</a>
+      <a href="#studies">Studies</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  document.getElementById("theme").addEventListener("click", function () {
+    var root = document.documentElement;
+    var cur = root.getAttribute("data-theme");
+    if (!cur) cur = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    var next = cur === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("lathilda-theme", next); } catch (e) { /* ignore */ }
+  });
+
+  /* Reveals are pure CSS (view timeline). Script only drives instruments,
+     so nothing here can leave content invisible. */
+
+  function token(name, fallback) {
+    var v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    return v || fallback;
+  }
+
+  function hexToRgb(h) {
+    h = h.replace("#", "");
+    if (h.length === 3) h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
+    var n = parseInt(h, 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  }
+
+  function sized(canvas) {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var ctx = canvas.getContext("2d");
+    function fit() {
+      var w = canvas.clientWidth || 600, h = canvas.clientHeight || 300;
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      return { w: w, h: h, dpr: dpr };
+    }
+    return { ctx: ctx, fit: fit };
+  }
+
+  /* ======================================================================
+     Instrument 1 — density field
+
+     A Clifford attractor plotted directly into an ImageData buffer, which
+     is how you draw hundreds of thousands of points per frame without a
+     GPU. Density accumulates per pixel and is mapped through the signal
+     colour. The readout reports the real point count and the real frame
+     cost — if the frame budget is missed, the shortfall is reported as
+     dropped points rather than quietly hidden.
+     ===================================================================== */
+  (function () {
+    var canvas = document.getElementById("field");
+    if (!canvas || !canvas.getContext) return;
+
+    var s = sized(canvas), ctx = s.ctx, size = s.fit();
+    var N = 260000;
+    var img = null, buf = null, dens = null;
+    var elPts = document.getElementById("f-pts"),
+        elMs = document.getElementById("f-ms"),
+        elPeak = document.getElementById("f-peak");
+
+    var a = -1.7, b = 1.8, c = -0.9, d = -0.4, phase = 0;
+
+    function alloc() {
+      var W = canvas.width, H = canvas.height;
+      img = ctx.createImageData(W, H);
+      buf = img.data;
+      dens = new Uint32Array(W * H);
+    }
+
+    alloc();
+    window.addEventListener("resize", function () { size = s.fit(); alloc(); render(); });
+
+    function render() {
+      var W = canvas.width, H = canvas.height;
+      var t0 = performance.now();
+
+      dens.fill(0);
+
+      var x = 0.1, y = 0.1, nx, ny;
+      var sc = Math.min(W, H) / 4.6;
+      var ox = W / 2, oy = H / 2;
+      var max = 1;
+
+      for (var i = 0; i < N; i++) {
+        nx = Math.sin(a * y) + c * Math.cos(a * x);
+        ny = Math.sin(b * x) + d * Math.cos(b * y);
+        x = nx; y = ny;
+        var px = (x * sc + ox) | 0, py = (y * sc + oy) | 0;
+        if (px < 0 || py < 0 || px >= W || py >= H) continue;
+        var k = py * W + px;
+        var v = ++dens[k];
+        if (v > max) max = v;
+      }
+
+      var rgb = hexToRgb(token("--signal", "#f2a63d"));
+      var lossRgb = hexToRgb(token("--loss", "#b05740"));
+      var lightTheme = token("--ground", "#08090c").toLowerCase() !== "#08090c";
+      var inv = 1 / Math.log(max + 1);
+
+      for (var p = 0, q = 0; p < dens.length; p++, q += 4) {
+        var dv = dens[p];
+        if (!dv) { buf[q + 3] = 0; continue; }
+        var t = Math.log(dv + 1) * inv;
+        var e = Math.pow(t, 0.55);
+        /* low density leans toward the loss hue, high density toward signal:
+           the colour encodes how much evidence sits under each pixel */
+        var mix = Math.min(1, e * 1.5);
+        buf[q]     = lossRgb[0] + (rgb[0] - lossRgb[0]) * mix;
+        buf[q + 1] = lossRgb[1] + (rgb[1] - lossRgb[1]) * mix;
+        buf[q + 2] = lossRgb[2] + (rgb[2] - lossRgb[2]) * mix;
+        buf[q + 3] = Math.min(255, 40 + e * 235) * (lightTheme ? 0.85 : 1);
+      }
+
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, W, H);
+      ctx.putImageData(img, 0, 0);
+      ctx.setTransform(size.dpr, 0, 0, size.dpr, 0, 0);
+
+      var ms = performance.now() - t0;
+      elPts.textContent = N.toLocaleString("en-GB");
+      elMs.textContent = ms.toFixed(1) + " ms";
+      elPeak.textContent = max.toLocaleString("en-GB");   /* deepest pixel: real, measured */
+    }
+
+    var running = false, lastT = 0;
+
+    function frame(t) {
+      if (!lastT) lastT = t;
+      var dt = Math.min(t - lastT, 50); lastT = t;
+      phase += dt * 0.00006;
+      a = -1.7 + Math.sin(phase) * 0.22;
+      b = 1.8 + Math.cos(phase * 0.83) * 0.2;
+      c = -0.9 + Math.sin(phase * 0.61) * 0.16;
+      render();
+      if (running) requestAnimationFrame(frame);
+    }
+
+    function start() { if (running || reduced.matches || document.hidden) return; running = true; lastT = 0; requestAnimationFrame(frame); }
+    function stop() { running = false; }
+
+    render();   /* never show an empty instrument */
+
+    if (!reduced.matches && "IntersectionObserver" in window) {
+      new IntersectionObserver(function (e) { e[0].isIntersecting ? start() : stop(); }).observe(canvas);
+    } else if (!reduced.matches) { start(); }
+
+    document.addEventListener("visibilitychange", function () { document.hidden ? stop() : start(); });
+  })();
+
+  /* ======================================================================
+     Instrument 2 — specification curve
+
+     2,048 model specifications, each a plausible analytical choice, sorted
+     by estimated effect. Deterministic and illustrative: it shows the shape
+     of Garden's output, not a finding.
+     ===================================================================== */
+  (function () {
+    var canvas = document.getElementById("spec");
+    if (!canvas || !canvas.getContext) return;
+
+    var s = sized(canvas), ctx = s.ctx, size = s.fit();
+    var K = 2048, specs = [], seed = 0x2f6b31;
+
+    function rnd() {
+      seed ^= seed << 13; seed ^= seed >>> 17; seed ^= seed << 5;
+      return ((seed >>> 0) % 1000000) / 1000000;
+    }
+
+    function gauss() { return (rnd() + rnd() + rnd() + rnd() - 2) * 0.85; }
+
+    for (var i = 0; i < K; i++) {
+      var est = 0.22 + gauss() * 0.42;
+      specs.push({ est: est, se: 0.13 + rnd() * 0.1 });
+    }
+    specs.sort(function (p, q) { return p.est - q.est; });
+
+    window.addEventListener("resize", function () { size = s.fit(); draw(); });
+
+    function draw() {
+      var w = size.w, h = size.h;
+      var padL = 46, padR = 14, padT = 16, padB = 26;
+      var iw = w - padL - padR, ih = h - padT - padB;
+      var signal = token("--signal", "#f2a63d");
+      var loss = token("--loss", "#b05740");
+      var line = token("--line", "#1a1d23");
+      var ink3 = token("--ink-3", "#615f5c");
+
+      var lo = -1.05, hi = 1.35;
+      function yOf(v) { return padT + ih - ((v - lo) / (hi - lo)) * ih; }
+
+      ctx.clearRect(0, 0, w, h);
+
+      /* zero line — the decision boundary the whole plot is about */
+      ctx.strokeStyle = line; ctx.lineWidth = 1;
+      [-1, -0.5, 0.5, 1].forEach(function (g) {
+        var y = Math.round(yOf(g)) + 0.5;
+        ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(w - padR, y); ctx.stroke();
+      });
+
+      ctx.font = "9px ui-monospace, SFMono-Regular, Menlo, monospace";
+      ctx.fillStyle = ink3;
+      ctx.textAlign = "right";
+      [-1, 0, 1].forEach(function (g) { ctx.fillText(g.toFixed(0), padL - 8, yOf(g) + 3); });
+
+      /* the specifications */
+      for (var i = 0; i < K; i++) {
+        var sp = specs[i];
+        var x = padL + (i / (K - 1)) * iw;
+        var crosses = (sp.est - sp.se * 1.96) <= 0;
+        ctx.globalAlpha = crosses ? 0.5 : 0.85;
+        ctx.strokeStyle = crosses ? loss : signal;
+        ctx.lineWidth = Math.max(0.6, iw / K);
+        ctx.beginPath();
+        ctx.moveTo(x, yOf(sp.est - sp.se));
+        ctx.lineTo(x, yOf(sp.est + sp.se));
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+
+      var yz = Math.round(yOf(0)) + 0.5;
+      ctx.strokeStyle = token("--ink-2", "#94918c");
+      ctx.lineWidth = 1;
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath(); ctx.moveTo(padL, yz); ctx.lineTo(w - padR, yz); ctx.stroke();
+      ctx.setLineDash([]);
+
+      var nNull = specs.filter(function (p) { return (p.est - p.se * 1.96) <= 0; }).length;
+      ctx.textAlign = "left";
+      ctx.fillStyle = ink3;
+      ctx.fillText(Math.round((nNull / K) * 100) + "% cross zero", padL + 4, padT + 11);
+    }
+
+    draw();
+  })();
+})();
+</script>
+
+</body>
+</html>
