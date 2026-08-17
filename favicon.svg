@@ -1,5 +1,140 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#08090c"/>
-  <path d="M16 5 L27 16 L16 27 L5 16 Z" fill="#f2a63d"/>
-  <path d="M16 11 L21 16 L16 21 L11 16 Z" fill="#08090c"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 64 64" role="img" aria-labelledby="lat-title lat-desc">
+  <title id="lat-title">Lathilda</title>
+  <desc id="lat-desc">A seven-bladed iris diaphragm in brass, calibrated at the rim, opened onto a field of data too dense to resolve at the edges.</desc>
+  <defs>
+    <linearGradient id="brass-body" x1="14" y1="8" x2="52" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7a5a24"/>
+      <stop offset="0.24" stop-color="#f2a63d"/>
+      <stop offset="0.46" stop-color="#a8752c"/>
+      <stop offset="0.71" stop-color="#f6c076"/>
+      <stop offset="1" stop-color="#8a6127"/>
+    </linearGradient>
+    <linearGradient id="brass-edge" x1="52" y1="10" x2="16" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffd9a1"/>
+      <stop offset="0.42" stop-color="#c8892f"/>
+      <stop offset="1" stop-color="#f4b45c"/>
+    </linearGradient>
+    <radialGradient id="bore" cx="32" cy="32" r="9" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#12131a"/>
+      <stop offset="1" stop-color="#05060a"/>
+    </radialGradient>
+    <mask id="ring">
+      <rect width="64" height="64" fill="#000"/>
+      <circle cx="32" cy="32" r="25.5" fill="#fff"/>
+      <path d="M23.82 34.66 L24.82 27.26 L31.23 23.43 L38.22 26.06 L40.52 33.15 L36.41 39.38 L28.98 40.05 Z" fill="#000"/>
+    </mask>
+    <clipPath id="bore-clip"><path d="M23.82 34.66 L24.82 27.26 L31.23 23.43 L38.22 26.06 L40.52 33.15 L36.41 39.38 L28.98 40.05 Z"/></clipPath>
+  </defs>
+
+  <!-- Named layers are deliberate: the mark can be refined without redrawing it. -->
+  <g data-identity-mark="lathilda" data-instrument="iris-diaphragm">
+    <rect width="64" height="64" fill="#08090c"/>
+
+    <g data-layer="barrel">
+            <path d="M59.1 32 L61.5 32" stroke="#f2a63d" stroke-width="0.7" stroke-opacity="0.55" stroke-linecap="round"/>
+      <path d="M58.87 35.54 L60.06 35.69" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M58.18 39.01 L59.34 39.32" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M57.04 42.37 L58.15 42.83" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M55.47 45.55 L56.51 46.15" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M53.5 48.5 L54.45 49.23" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M51.16 51.16 L52.86 52.86" stroke="#f2a63d" stroke-width="0.7" stroke-opacity="0.55" stroke-linecap="round"/>
+      <path d="M48.5 53.5 L49.23 54.45" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M45.55 55.47 L46.15 56.51" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M42.37 57.04 L42.83 58.15" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M39.01 58.18 L39.32 59.34" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M35.54 58.87 L35.69 60.06" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M32 59.1 L32 61.5" stroke="#f2a63d" stroke-width="0.7" stroke-opacity="0.55" stroke-linecap="round"/>
+      <path d="M28.46 58.87 L28.31 60.06" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M24.99 58.18 L24.68 59.34" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M21.63 57.04 L21.17 58.15" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M18.45 55.47 L17.85 56.51" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M15.5 53.5 L14.77 54.45" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M12.84 51.16 L11.14 52.86" stroke="#f2a63d" stroke-width="0.7" stroke-opacity="0.55" stroke-linecap="round"/>
+      <path d="M10.5 48.5 L9.55 49.23" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M8.53 45.55 L7.49 46.15" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M6.96 42.37 L5.85 42.83" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M5.82 39.01 L4.66 39.32" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M5.13 35.54 L3.94 35.69" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M4.9 32 L2.5 32" stroke="#f2a63d" stroke-width="0.7" stroke-opacity="0.55" stroke-linecap="round"/>
+      <path d="M5.13 28.46 L3.94 28.31" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M5.82 24.99 L4.66 24.68" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M6.96 21.63 L5.85 21.17" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M8.53 18.45 L7.49 17.85" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M10.5 15.5 L9.55 14.77" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M12.84 12.84 L11.14 11.14" stroke="#f2a63d" stroke-width="0.7" stroke-opacity="0.55" stroke-linecap="round"/>
+      <path d="M15.5 10.5 L14.77 9.55" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M18.45 8.53 L17.85 7.49" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M21.63 6.96 L21.17 5.85" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M24.99 5.82 L24.68 4.66" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M28.46 5.13 L28.31 3.94" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M32 4.9 L32 2.5" stroke="#f2a63d" stroke-width="0.7" stroke-opacity="0.55" stroke-linecap="round"/>
+      <path d="M35.54 5.13 L35.69 3.94" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M39.01 5.82 L39.32 4.66" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M42.37 6.96 L42.83 5.85" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M45.55 8.53 L46.15 7.49" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M48.5 10.5 L49.23 9.55" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M51.16 12.84 L52.86 11.14" stroke="#f2a63d" stroke-width="0.7" stroke-opacity="0.55" stroke-linecap="round"/>
+      <path d="M53.5 15.5 L54.45 14.77" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M55.47 18.45 L56.51 17.85" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M57.04 21.63 L58.15 21.17" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M58.18 24.99 L59.34 24.68" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <path d="M58.87 28.46 L60.06 28.31" stroke="#f2a63d" stroke-width="0.45" stroke-opacity="0.28" stroke-linecap="round"/>
+      <circle cx="32" cy="32" r="26.6" fill="none" stroke="url(#brass-edge)" stroke-width="0.5" stroke-opacity="0.5"/>
+    </g>
+
+    <g data-layer="blades" mask="url(#ring)">
+      <circle cx="32" cy="32" r="25.5" fill="url(#brass-body)"/>
+      <g stroke="#2a1b07" stroke-opacity="0.55" stroke-width="0.62" fill="none" stroke-linecap="round">
+                <path d="M32 8 A21.75 21.75 0 0 1 23.82 34.66"/>
+        <path d="M50.76 17.04 A21.75 21.75 0 0 1 24.82 27.26"/>
+        <path d="M55.4 37.34 A21.75 21.75 0 0 1 31.23 23.43"/>
+        <path d="M42.41 53.62 A21.75 21.75 0 0 1 38.22 26.06"/>
+        <path d="M21.59 53.62 A21.75 21.75 0 0 1 40.52 33.15"/>
+        <path d="M8.6 37.34 A21.75 21.75 0 0 1 36.41 39.38"/>
+        <path d="M13.24 17.04 A21.75 21.75 0 0 1 28.98 40.05"/>
+      </g>
+      <g stroke="url(#brass-edge)" stroke-opacity="0.85" stroke-width="0.3" fill="none" stroke-linecap="round">
+                <path d="M32 8 A21.75 21.75 0 0 1 23.82 34.66"/>
+        <path d="M50.76 17.04 A21.75 21.75 0 0 1 24.82 27.26"/>
+        <path d="M55.4 37.34 A21.75 21.75 0 0 1 31.23 23.43"/>
+        <path d="M42.41 53.62 A21.75 21.75 0 0 1 38.22 26.06"/>
+        <path d="M21.59 53.62 A21.75 21.75 0 0 1 40.52 33.15"/>
+        <path d="M8.6 37.34 A21.75 21.75 0 0 1 36.41 39.38"/>
+        <path d="M13.24 17.04 A21.75 21.75 0 0 1 28.98 40.05"/>
+      </g>
+    </g>
+
+    <g data-layer="bore">
+      <path d="M23.82 34.66 L24.82 27.26 L31.23 23.43 L38.22 26.06 L40.52 33.15 L36.41 39.38 L28.98 40.05 Z" fill="url(#bore)"/>
+      <g clip-path="url(#bore-clip)" data-layer="field">
+                <circle cx="27.64" cy="33.35" r="0.5" fill="#edece9" opacity="0.59"/>
+        <circle cx="27.27" cy="31.77" r="0.28" fill="#edece9" opacity="0.62"/>
+        <circle cx="27.94" cy="27.68" r="0.25" fill="#edece9" opacity="0.49"/>
+        <circle cx="37.07" cy="35.25" r="0.43" fill="#edece9" opacity="0.33"/>
+        <circle cx="38.82" cy="31.23" r="0.42" fill="#edece9" opacity="0.68"/>
+        <circle cx="32.17" cy="32.25" r="0.38" fill="#edece9" opacity="0.34"/>
+        <circle cx="32.89" cy="34.26" r="0.23" fill="#edece9" opacity="0.59"/>
+        <circle cx="26.23" cy="34.26" r="0.38" fill="#edece9" opacity="0.70"/>
+        <circle cx="26.82" cy="32.01" r="0.36" fill="#edece9" opacity="0.47"/>
+        <circle cx="39.03" cy="31.9" r="0.47" fill="#edece9" opacity="0.74"/>
+        <circle cx="31.07" cy="34.15" r="0.31" fill="#edece9" opacity="0.34"/>
+        <circle cx="32.36" cy="28.47" r="0.47" fill="#edece9" opacity="0.54"/>
+        <circle cx="38.01" cy="30.38" r="0.22" fill="#edece9" opacity="0.43"/>
+        <circle cx="35.38" cy="29.86" r="0.51" fill="#edece9" opacity="0.55"/>
+        <circle cx="36.47" cy="34.21" r="0.45" fill="#edece9" opacity="0.47"/>
+        <circle cx="34.64" cy="33.61" r="0.51" fill="#edece9" opacity="0.77"/>
+        <circle cx="33.82" cy="33.67" r="0.25" fill="#edece9" opacity="0.34"/>
+        <circle cx="32.56" cy="30.15" r="0.39" fill="#edece9" opacity="0.58"/>
+        <circle cx="34.03" cy="37.2" r="0.26" fill="#edece9" opacity="0.70"/>
+        <circle cx="34.74" cy="34.46" r="0.28" fill="#edece9" opacity="0.47"/>
+        <circle cx="37.88" cy="30.91" r="0.31" fill="#edece9" opacity="0.85"/>
+        <circle cx="32.86" cy="35.4" r="0.48" fill="#edece9" opacity="0.70"/>
+        <circle cx="37.65" cy="36.12" r="0.28" fill="#edece9" opacity="0.46"/>
+        <circle cx="32.44" cy="28.97" r="0.31" fill="#edece9" opacity="0.35"/>
+        <circle cx="35.97" cy="34.52" r="0.29" fill="#edece9" opacity="0.67"/>
+        <circle cx="29.3" cy="34.81" r="0.51" fill="#edece9" opacity="0.60"/>
+      </g>
+      <path d="M23.82 34.66 L24.82 27.26 L31.23 23.43 L38.22 26.06 L40.52 33.15 L36.41 39.38 L28.98 40.05 Z" fill="none" stroke="url(#brass-edge)" stroke-width="0.6" stroke-opacity="0.9"/>
+    </g>
+  </g>
 </svg>
