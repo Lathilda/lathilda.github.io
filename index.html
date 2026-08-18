@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lathilda — Instruments for very large data</title>
-<meta name="description" content="An independent lab building instruments for data that has outgrown the tools built to look at it. GPU rendering, the pipelines that feed it, and Garden.">
+<meta name="description" content="An independent lab building instruments for data that has outgrown the tools built to look at it. GPU rendering, the pipelines that feed it, and the studies that test both.">
 <meta name="color-scheme" content="dark light">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
@@ -31,7 +31,7 @@
     <a class="wordmark" href="/"><span class="aperture" aria-hidden="true"></span>Lathilda</a>
     <nav aria-label="Primary">
       <a href="#about" data-optional>About</a>
-      <a href="#garden">Garden</a>
+      <a href="#question">Question</a>
       <a href="#studies">Studies</a>
       <a href="#engine" data-optional>Engine</a>
       <a href="#academy" data-optional>Academy</a>
@@ -54,7 +54,7 @@
           away didn't matter. We build instruments that move that boundary.
         </p>
         <div class="hero-actions">
-          <a class="btn" href="#garden">See Garden</a>
+          <a class="btn" href="#studies">Current work</a>
           <a class="btn ghost" href="#about">What this is</a>
         </div>
       </div>
@@ -115,7 +115,7 @@
           <div class="fact"><dt>Founded</dt><dd>2026</dd></div>
           <div class="fact"><dt>Location</dt><dd>Madrid, ES</dd></div>
           <div class="fact"><dt>Headcount</dt><dd>1 <span class="accent">+ agents</span></dd></div>
-          <div class="fact"><dt>Products</dt><dd>1 <span class="accent">alpha</span></dd></div>
+          <div class="fact"><dt>Open questions</dt><dd>2</dd></div>
           <div class="fact"><dt>Active studies</dt><dd>2</dd></div>
           <div class="fact"><dt>Substrate</dt><dd>WebGPU</dd></div>
           <div class="fact"><dt>Retracted</dt><dd>0 <span class="accent">so far</span></dd></div>
@@ -124,24 +124,26 @@
     </div>
   </section>
 
-  <!-- ==================== GARDEN ==================== -->
-  <section class="section" id="garden">
+  <!-- ==================== OPEN QUESTION ==================== -->
+  <section class="section" id="question">
     <div class="shell">
       <div class="section-head reveal">
-        <p class="label"><span class="n">02</span> &nbsp;/&nbsp; Product</p>
-        <h2>Every analysis is a choice. Garden runs the ones you didn’t make.</h2>
+        <p class="label"><span class="n">02</span> &nbsp;/&nbsp; Open question</p>
+        <h2>Every analysis is a choice. What if you could see the ones you didn’t make?</h2>
         <p>
           A result is the product of a hundred small decisions — which controls,
           which window, which estimator, which outlier rule. Change one and the
-          number moves. Garden runs the whole space and shows you the
-          distribution instead of the single number you happened to land on.
+          number moves. Running the whole space shows you the distribution
+          instead of the single number someone happened to land on. The
+          question is whether rendering that space interactively needs a GPU
+          at all — and we intend to measure before we build.
         </p>
       </div>
 
       <div class="product reveal">
         <div class="product-head">
-          <h3 class="product-name">Garden</h3>
-          <span class="badge">Alpha · in development</span>
+          <h3 class="product-name">Specification space</h3>
+          <span class="badge">Question · not yet built</span>
         </div>
 
         <div class="product-body">
@@ -152,21 +154,22 @@
               thousand.
             </p>
             <p>
-              So we put it on the GPU and in the browser. Declare your model and
-              the choices you could have made; Garden enumerates the space,
-              executes it, and renders the result as a distribution you can
+              The obvious answer is to put it on the GPU and in the browser:
+              declare the model and the choices you could have made, enumerate
+              the space, execute it, and render a distribution you can
               interrogate — <em>with no install and no cluster</em>.
             </p>
             <p>
-              The method is domain-agnostic; analytical flexibility is not an
-              economics problem. Economics is simply where we start, because
-              it's where we have the data and the judgement to know when an
-              answer is wrong.
+              The obvious answer is not automatically the right one. If a
+              specification space runs fast enough on a CPU, the GPU adds
+              nothing and this should not be built. That measurement comes
+              first. We would rather publish that we were wrong about needing
+              it than ship an engine to justify a name.
             </p>
             <div class="chips">
               <span class="chip">specification curves</span>
               <span class="chip">multiverse analysis</span>
-              <span class="chip">GPU-executed</span>
+              <span class="chip">GPU — if measurement justifies it</span>
               <span class="chip">provenance-carrying</span>
             </div>
           </div>
@@ -241,25 +244,6 @@
           </div>
         </article>
 
-        <article class="study">
-          <div class="study-id">Study 003</div>
-          <div class="study-body">
-            <h3>Real-time macro, vintage by vintage</h3>
-            <p>
-              Reconstructing what was actually knowable at each historical
-              moment, and asking how much published macro-finance survives
-              being restricted to the data that existed at the time.
-            </p>
-            <p class="study-limit">
-              Limit — four euro-area series, frozen and hashed. No empirical
-              finding claimed yet.
-            </p>
-          </div>
-          <div class="study-state">
-            <span class="state is-open">Study 0</span>
-            <span class="study-meta">Garden consumer</span>
-          </div>
-        </article>
 
       </div>
     </div>
@@ -363,7 +347,7 @@
     <div class="links">
       <a href="https://joshuadefreitas.github.io">Joshua de Freitas</a>
       <a href="https://github.com/joshuadefreitas">GitHub</a>
-      <a href="#garden">Garden</a>
+      <a href="#question">Question</a>
       <a href="#studies">Studies</a>
     </div>
   </div>
@@ -527,7 +511,7 @@
 
      2,048 model specifications, each a plausible analytical choice, sorted
      by estimated effect. Deterministic and illustrative: it shows the shape
-     of Garden's output, not a finding.
+     of a specification space, not a finding.
      ===================================================================== */
   (function () {
     var canvas = document.getElementById("spec");
