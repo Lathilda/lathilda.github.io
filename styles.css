@@ -348,9 +348,15 @@ a { color: inherit; }
   max-width: 44ch;
 }
 
-.hero-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; align-items: stretch; }
 
 .btn {
+  /* Same defect as Ghalvera's: bare flex items stretch to the tallest sibling
+     and a long label wraps, so a pair renders at unequal heights. 2026-08-18. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
   font-family: var(--mono);
   font-size: 0.71rem;
   letter-spacing: 0.15em;
@@ -870,3 +876,41 @@ canvas.plot { display: block; width: 100%; }
 }
 
 .toggle:hover { border-color: var(--signal); color: var(--signal); }
+
+/* -- open questions --------------------------------------------------------
+   Lathilda leads with questions (2026-08-18), rendered as editorial statements
+   with generous measure — deliberately not Ghalvera's dense register. The two
+   laboratories should not read as one template in two colours. */
+.opens { display: grid; gap: clamp(28px, 4vw, 52px); }
+.open-q { display: grid; gap: 10px; max-width: 74ch; }
+.open-n {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  color: var(--ink-3);
+}
+.open-q h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  line-height: 1.16;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.open-q > p { margin: 0; font-size: 1rem; line-height: 1.72; color: var(--ink-2); }
+.open-a {
+  margin-top: 4px !important;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 0.78rem !important;
+  line-height: 1.7 !important;
+  color: var(--ink-3) !important;
+}
+@media (min-width: 900px) {
+  .opens { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 3vw, 44px); }
+  .open-q { max-width: none; }
+}

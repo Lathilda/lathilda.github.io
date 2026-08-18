@@ -30,8 +30,9 @@
   <div class="shell">
     <a class="wordmark" href="/"><span class="aperture" aria-hidden="true"></span>Lathilda</a>
     <nav aria-label="Primary">
+      <a href="#open">Open</a>
       <a href="#about" data-optional>About</a>
-      <a href="#question">Question</a>
+      <a href="#question">Method</a>
       <a href="#studies">Studies</a>
       <a href="#engine" data-optional>Engine</a>
       <a href="#academy" data-optional>Academy</a>
@@ -54,7 +55,7 @@
           away didn't matter. We build instruments that move that boundary.
         </p>
         <div class="hero-actions">
-          <a class="btn" href="#studies">Current work</a>
+          <a class="btn" href="#open">Open questions</a>
           <a class="btn ghost" href="#about">What this is</a>
         </div>
       </div>
@@ -75,11 +76,65 @@
     </div>
   </section>
 
+  <!-- ==================== OPEN QUESTIONS ==================== -->
+  <section class="section" id="open">
+    <div class="shell">
+      <div class="section-head reveal">
+        <p class="label"><span class="n">01</span> &nbsp;/&nbsp; Open</p>
+        <h2>Three things we do not know yet</h2>
+        <p>
+          The lab leads with its questions because that is the honest ratio.
+          The first one is uncomfortable: our own headline number is a
+          citation, not a measurement.
+        </p>
+      </div>
+
+      <div class="opens reveal">
+        <article class="open-q">
+          <p class="open-n">01</p>
+          <h3>Where is the ceiling, actually?</h3>
+          <p>
+            We say browser rendering plateaus near a hundred thousand nodes.
+            That figure comes from the literature, not from our engine on our
+            hardware — and GPU graph tools have publicly claimed far more since
+            WebGPU shipped. Until both are measured, every claim about moving
+            a boundary is unfalsifiable.
+          </p>
+          <p class="open-a">Answered by a benchmark: node count, edge count, layout time, frame time, and the point where interaction stops being interactive — with that point defined rather than felt.</p>
+        </article>
+
+        <article class="open-q">
+          <p class="open-n">02</p>
+          <h3>Can you explore a real dependency graph?</h3>
+          <p>
+            Every organisation shipping software has one, running to millions
+            of edges, and no existing viewer shows it without sampling or
+            collapsing it first. Package graphs are almost entirely hubs, which
+            is exactly the case that serialises force computation.
+          </p>
+          <p class="open-a">Answered by pointing it at a real lockfile and finding something a table would not have shown — where the graph is one package from disconnection.</p>
+        </article>
+
+        <article class="open-q">
+          <p class="open-n">03</p>
+          <h3>Does a specification space need a GPU at all?</h3>
+          <p>
+            Running every defensible choice behind a result, rather than the
+            one someone happened to land on, multiplies the compute. The
+            obvious answer is to put it on the GPU. The obvious answer is not
+            automatically right.
+          </p>
+          <p class="open-a">Answered by a CPU baseline first. If the CPU suffices, we say so and do not build it.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ==================== ABOUT ==================== -->
   <section class="section" id="about">
     <div class="shell">
       <div class="section-head reveal">
-        <p class="label"><span class="n">01</span> &nbsp;/&nbsp; About</p>
+        <p class="label"><span class="n">02</span> &nbsp;/&nbsp; About</p>
         <h2>A lab that mostly builds the microscope</h2>
       </div>
 
@@ -128,7 +183,7 @@
   <section class="section" id="question">
     <div class="shell">
       <div class="section-head reveal">
-        <p class="label"><span class="n">02</span> &nbsp;/&nbsp; Open question</p>
+        <p class="label"><span class="n">03</span> &nbsp;/&nbsp; Method</p>
         <h2>Every analysis is a choice. What if you could see the ones you didn’t make?</h2>
         <p>
           A result is the product of a hundred small decisions — which controls,
@@ -191,7 +246,7 @@
   <section class="section" id="studies">
     <div class="shell">
       <div class="section-head reveal">
-        <p class="label"><span class="n">03</span> &nbsp;/&nbsp; Studies</p>
+        <p class="label"><span class="n">04</span> &nbsp;/&nbsp; Studies</p>
         <h2>Bounded questions that state what they failed to establish</h2>
         <p>
           Each study names one question, one substrate and one limit. Some use
@@ -253,7 +308,7 @@
   <section class="section" id="engine">
     <div class="shell">
       <div class="section-head reveal">
-        <p class="label"><span class="n">04</span> &nbsp;/&nbsp; Engine</p>
+        <p class="label"><span class="n">05</span> &nbsp;/&nbsp; Engine</p>
         <h2>Where the boundary actually is</h2>
         <p>
           Interactive graph rendering in a browser plateaus around a hundred
@@ -301,7 +356,7 @@
   <section class="section" id="academy">
     <div class="shell">
       <div class="section-head reveal">
-        <p class="label"><span class="n">05</span> &nbsp;/&nbsp; Academy</p>
+        <p class="label"><span class="n">06</span> &nbsp;/&nbsp; Academy</p>
         <h2>Explaining the machinery, once it has earned it</h2>
       </div>
 
@@ -347,7 +402,7 @@
     <div class="links">
       <a href="https://joshuadefreitas.github.io">Joshua de Freitas</a>
       <a href="https://github.com/joshuadefreitas">GitHub</a>
-      <a href="#question">Question</a>
+      <a href="#question">Method</a>
       <a href="#studies">Studies</a>
     </div>
   </div>
