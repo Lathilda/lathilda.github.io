@@ -1,653 +1,239 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lathilda — Instruments for very large data</title>
-<meta name="description" content="An independent lab building instruments for data that has outgrown the tools built to look at it. GPU rendering, the pipelines that feed it, and the studies that test both.">
-<meta name="color-scheme" content="dark light">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Lathilda">
-<meta property="og:description" content="Most data is never actually looked at. We build the instruments that would let you.">
-<meta property="og:type" content="website">
-<!-- Absolute URLs: update both when the custom domain is switched to Pages. -->
-<meta property="og:url" content="https://lathilda.github.io/">
-<meta property="og:image" content="https://lathilda.github.io/og.png">
-<meta name="twitter:card" content="summary_large_image">
-<script>
-  (function () {
-    try {
-      var t = localStorage.getItem("lathilda-theme");
-      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
-    } catch (e) { /* storage unavailable; the media query decides */ }
-  })();
-</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lathilda — Other ways to compute</title>
+  <meta name="description" content="Lathilda explores other ways computers can be built, programmed and experienced: alternative computational substrates, execution models and public instruments.">
+  <meta name="theme-color" content="#f7f3ff">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <meta property="og:title" content="Lathilda — Other ways to compute">
+  <meta property="og:description" content="Languages, runtimes, machines and public instruments for alternative computation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lathilda.com/">
+  <meta property="og:image" content="https://lathilda.com/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to the ideas</a>
 
-<header class="masthead">
-  <div class="shell">
-    <a class="wordmark" href="/"><span class="aperture" aria-hidden="true"></span>Lathilda</a>
-    <nav aria-label="Primary">
-      <a href="#open">Open</a>
-      <a href="#about" data-optional>About</a>
-      <a href="#question">Method</a>
-      <a href="#studies">Studies</a>
-      <a href="#engine" data-optional>Engine</a>
-      <a href="#academy" data-optional>Academy</a>
-      <button class="toggle" id="theme" type="button" aria-label="Switch colour theme">Theme</button>
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="Lathilda home">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M7 24.5c0-8.4 5.6-15.2 13.8-15.2 7.2 0 12.2 4.7 12.2 11.5 0 7.4-5.4 12.5-13.3 12.5-4.7 0-8.9-2.2-11.2-5.8 5.8 1.8 13 .5 16.2-4.2 2.4-3.7.7-7.8-3.4-8.4-4.8-.7-8.3 3.2-8.3 8.2 0 .6 0 1 .1 1.4H7Z"/>
+        <circle cx="27.8" cy="15.2" r="2.2"/>
+      </svg>
+      <span>Lathilda</span>
+    </a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-navigation" data-menu>
+      <span></span><span></span><span></span><span class="sr-only">Menu</span>
+    </button>
+    <nav id="primary-navigation" class="primary-navigation" aria-label="Primary navigation" data-nav>
+      <a href="#question">Question</a>
+      <a href="#axes">Research axes</a>
+      <a href="#candidates">Candidates</a>
+      <a href="#heritage">Heritage</a>
+      <a class="nav-pill" href="https://github.com/Lathilda">GitHub <span aria-hidden="true">↗</span></a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<main>
-
-  <!-- ==================== HERO ==================== -->
-  <section class="hero">
-    <div class="shell hero-grid">
-      <div class="hero-copy">
-        <p class="label">Independent research lab · Madrid</p>
-        <h1>Most data is never <em>actually looked at.</em></h1>
-        <p class="hero-lede">
-          It doesn't fit. Tools give up somewhere around a hundred thousand
-          points, so people sample, aggregate, and hope the part they threw
-          away didn't matter. We build instruments that move that boundary.
-        </p>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-wash wash-one" aria-hidden="true"></div>
+      <div class="hero-wash wash-two" aria-hidden="true"></div>
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow"><span class="eyebrow-dot"></span> Independent research laboratory</p>
+        <h1>Other ways<br>to <em>compute.</em></h1>
+        <p class="hero-lede">Lathilda explores other ways computers can be built, programmed and experienced.</p>
         <div class="hero-actions">
-          <a class="btn" href="#open">Open questions</a>
-          <a class="btn ghost" href="#about">What this is</a>
+          <a class="button button-primary" href="#axes">Enter the laboratory <span aria-hidden="true">↓</span></a>
+          <a class="button button-secondary" href="#candidates">See what might come next</a>
+        </div>
+        <div class="status-line">
+          <span class="status-orbit" aria-hidden="true"><i></i></span>
+          <p><strong>Foundation established.</strong> First flagship not yet selected.</p>
         </div>
       </div>
 
-      <figure class="instrument">
-        <div class="instrument-head">
-          <span>Density field · single frame</span>
-          <span class="live"><i aria-hidden="true"></i>rendering</span>
+      <div class="hero-object" role="img" aria-label="An abstract computational creature assembled from a voltage wave, a gear, woven threads and a graph" data-tilt data-reveal>
+        <div class="object-shadow"></div>
+        <div class="object-halo"></div>
+        <div class="core-shell">
+          <div class="core-face face-one"></div>
+          <div class="core-face face-two"></div>
+          <div class="core-eye"><span></span></div>
+          <div class="core-sheen"></div>
         </div>
-        <canvas class="plot" id="field" width="760" height="520" role="img"
-                aria-label="A dense field of several hundred thousand plotted points forming a continuously deforming mathematical attractor."></canvas>
-        <dl class="instrument-foot">
-          <div><dt>points / frame</dt><dd id="f-pts">0</dd></div>
-          <div><dt>frame</dt><dd id="f-ms">— ms</dd></div>
-          <div><dt>peak density</dt><dd id="f-peak">0</dd></div>
-        </dl>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ==================== OPEN QUESTIONS ==================== -->
-  <section class="section" id="open">
-    <div class="shell">
-      <div class="section-head reveal">
-        <p class="label"><span class="n">01</span> &nbsp;/&nbsp; Open</p>
-        <h2>Three things we do not know yet</h2>
-        <p>
-          The lab leads with its questions because that is the honest ratio.
-          The first one is uncomfortable: our own headline number is a
-          citation, not a measurement.
-        </p>
+        <div class="orbit orbit-a"><span class="satellite satellite-coral">∿</span></div>
+        <div class="orbit orbit-b"><span class="satellite satellite-cyan">⟳</span></div>
+        <div class="orbit orbit-c"><span class="satellite satellite-gold">⌘</span></div>
+        <svg class="thread-field" viewBox="0 0 360 360" aria-hidden="true">
+          <path d="M47 219C101 111 159 270 223 129s92 58 92 58"/>
+          <path d="M50 251c67-76 107 40 164-38 49-68 81-21 102 1"/>
+          <circle cx="47" cy="219" r="5"/><circle cx="223" cy="129" r="5"/><circle cx="315" cy="187" r="5"/>
+        </svg>
+        <div class="object-label label-voltage">voltage</div>
+        <div class="object-label label-reduction">reduction</div>
+        <div class="object-label label-matter">matter</div>
       </div>
 
-      <div class="opens reveal">
-        <article class="open-q">
-          <p class="open-n">01</p>
-          <h3>Where is the ceiling, actually?</h3>
-          <p>
-            We say browser rendering plateaus near a hundred thousand nodes.
-            That figure comes from the literature, not from our engine on our
-            hardware — and GPU graph tools have publicly claimed far more since
-            WebGPU shipped. Until both are measured, every claim about moving
-            a boundary is unfalsifiable.
-          </p>
-          <p class="open-a">Answered by a benchmark: node count, edge count, layout time, frame time, and the point where interaction stops being interactive — with that point defined rather than felt.</p>
-        </article>
+      <div class="hero-footnote" aria-hidden="true">EST. 2026 · MADRID / THE NETHERLANDS</div>
+    </section>
 
-        <article class="open-q">
-          <p class="open-n">02</p>
-          <h3>Can you explore a real dependency graph?</h3>
-          <p>
-            Every organisation shipping software has one, running to millions
-            of edges, and no existing viewer shows it without sampling or
-            collapsing it first. Package graphs are almost entirely hubs, which
-            is exactly the case that serialises force computation.
-          </p>
-          <p class="open-a">Answered by pointing it at a real lockfile and finding something a table would not have shown — where the graph is one package from disconnection.</p>
-        </article>
-
-        <article class="open-q">
-          <p class="open-n">03</p>
-          <h3>Does a specification space need a GPU at all?</h3>
-          <p>
-            Running every defensible choice behind a result, rather than the
-            one someone happened to land on, multiplies the compute. The
-            obvious answer is to put it on the GPU. The obvious answer is not
-            automatically right.
-          </p>
-          <p class="open-a">Answered by a CPU baseline first. If the CPU suffices, we say so and do not build it.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== ABOUT ==================== -->
-  <section class="section" id="about">
-    <div class="shell">
-      <div class="section-head reveal">
-        <p class="label"><span class="n">02</span> &nbsp;/&nbsp; About</p>
-        <h2>A lab that mostly builds the microscope</h2>
-      </div>
-
-      <div class="about-grid">
-        <div class="prose reveal">
-          <p class="lead">
-            Lathilda is a small independent lab. We build instruments for data
-            that has outgrown the tools built to look at it — and then we use
-            them on real questions.
-          </p>
-          <p>
-            The unglamorous truth about large datasets is that nobody sees
-            them. A scatter plot of ten million rows is either a solid black
-            rectangle or a sample of forty thousand of them wearing a hat. So
-            the standard move is to aggregate first and look second, which
-            means every interesting thing that was smaller than the bucket you
-            chose is gone before anyone looked.
-          </p>
-          <p>
-            Getting past that is only half a graphics problem. The other half is
-            plumbing: formats, indexes, streaming, and deciding what not to
-            load. We find this half genuinely interesting, which we accept is
-            an unusual position.
-          </p>
-          <p>
-            We publish studies alongside the tools. Some use our engine. Some
-            don't. The instruments exist to make questions answerable, not to
-            be in every answer.
-          </p>
+    <section class="manifesto section-pad" id="question">
+      <div class="section-number" data-reveal>01 / The question</div>
+      <div class="manifesto-grid">
+        <h2 data-reveal>Computers are not finished objects.</h2>
+        <div class="manifesto-copy" data-reveal>
+          <p class="lead">Most software assumes the same arrangement: silicon executes instructions, state moves forward, and the machine stays politely invisible.</p>
+          <p>We treat that arrangement as one possibility among many. What happens when voltage, yarn, mechanical motion or a collective of small robots becomes part of the computational idea? What changes when programs reduce as graphs, run backwards, handle effects explicitly or identify themselves by content?</p>
+          <p>Lathilda builds concrete answers: languages, runtimes, machines and public instruments. The result should not only be unusual. It should reveal a capability, constraint or experience that conventional computation hides.</p>
         </div>
-
-        <dl class="facts reveal">
-          <div class="fact"><dt>Founded</dt><dd>2026</dd></div>
-          <div class="fact"><dt>Location</dt><dd>Madrid, ES</dd></div>
-          <div class="fact"><dt>Headcount</dt><dd>1 <span class="accent">+ agents</span></dd></div>
-          <div class="fact"><dt>Open questions</dt><dd>2</dd></div>
-          <div class="fact"><dt>Active studies</dt><dd>2</dd></div>
-          <div class="fact"><dt>Substrate</dt><dd>WebGPU</dd></div>
-          <div class="fact"><dt>Retracted</dt><dd>0 <span class="accent">so far</span></dd></div>
-        </dl>
       </div>
-    </div>
-  </section>
-
-  <!-- ==================== OPEN QUESTION ==================== -->
-  <section class="section" id="question">
-    <div class="shell">
-      <div class="section-head reveal">
-        <p class="label"><span class="n">03</span> &nbsp;/&nbsp; Method</p>
-        <h2>Every analysis is a choice. What if you could see the ones you didn’t make?</h2>
-        <p>
-          A result is the product of a hundred small decisions — which controls,
-          which window, which estimator, which outlier rule. Change one and the
-          number moves. Running the whole space shows you the distribution
-          instead of the single number someone happened to land on. The
-          question is whether rendering that space interactively needs a GPU
-          at all — and we intend to measure before we build.
-        </p>
+      <div class="principle-row" data-reveal>
+        <div><span>Not</span> a catalogue of exotic technologies</div>
+        <div><span>Not</span> a rebrand of existing engine work</div>
+        <div><span>Always</span> a mechanism you can build or experience</div>
       </div>
+    </section>
 
-      <div class="product reveal">
-        <div class="product-head">
-          <h3 class="product-name">Specification space</h3>
-          <span class="badge">Question · not yet built</span>
+    <section class="axes section-pad" id="axes">
+      <div class="section-heading" data-reveal>
+        <div>
+          <p class="section-number">02 / Two axes</p>
+          <h2>Two doors into<br>the same strange room.</h2>
         </div>
+        <p>The axes intersect, but neither is a list of favored tools. A project earns its place by asking a real question about the medium or the way execution works.</p>
+      </div>
 
-        <div class="product-body">
-          <div class="product-copy">
-            <p class="lead">
-              Robustness analysis is a method everyone agrees with and almost
-              nobody runs, because running it multiplies the compute by a
-              thousand.
-            </p>
-            <p>
-              The obvious answer is to put it on the GPU and in the browser:
-              declare the model and the choices you could have made, enumerate
-              the space, execute it, and render a distribution you can
-              interrogate — <em>with no install and no cluster</em>.
-            </p>
-            <p>
-              The obvious answer is not automatically the right one. If a
-              specification space runs fast enough on a CPU, the GPU adds
-              nothing and this should not be built. That measurement comes
-              first. We would rather publish that we were wrong about needing
-              it than ship an engine to justify a name.
-            </p>
-            <div class="chips">
-              <span class="chip">specification curves</span>
-              <span class="chip">multiverse analysis</span>
-              <span class="chip">GPU — if measurement justifies it</span>
-              <span class="chip">provenance-carrying</span>
-            </div>
+      <div class="axis-grid">
+        <article class="axis-card substrate-card" data-reveal data-tilt>
+          <div class="axis-topline"><span>Axis A</span><span>Physical medium</span></div>
+          <div class="axis-visual substrate-visual" aria-hidden="true">
+            <div class="soft-shape blob-indigo"></div>
+            <div class="soft-shape blob-coral"></div>
+            <div class="circuit-line line-a"></div>
+            <div class="circuit-line line-b"></div>
+            <div class="material-bead bead-a"></div><div class="material-bead bead-b"></div><div class="material-bead bead-c"></div>
           </div>
-
-          <figure class="spec-figure">
-            <canvas class="plot" id="spec" width="820" height="440" role="img"
-                    aria-label="A specification curve. Two thousand and forty-eight model specifications sorted by estimated effect size; a large share of them cross zero."></canvas>
-            <figcaption class="spec-cap">
-              <span>2,048 specifications · sorted by effect</span>
-              <span>illustrative</span>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== STUDIES ==================== -->
-  <section class="section" id="studies">
-    <div class="shell">
-      <div class="section-head reveal">
-        <p class="label"><span class="n">04</span> &nbsp;/&nbsp; Studies</p>
-        <h2>Bounded questions that state what they failed to establish</h2>
-        <p>
-          Each study names one question, one substrate and one limit. Some use
-          our own instruments. Some have nothing to do with them.
-        </p>
-      </div>
-
-      <div class="studies reveal">
-
-        <article class="study">
-          <div class="study-id">Study 001</div>
-          <div class="study-body">
-            <h3>Cascade Field</h3>
-            <p>
-              How local conditions and a handful of long-range links decide
-              whether a small disturbance dies out or takes the whole field.
-              Deterministic, replayable from its seed, and every run is a URL
-              you can send to someone.
-            </p>
-            <p class="study-limit">
-              Limit — a synthetic rule system. It models no real contagion
-              process and is not evidence about one.
-            </p>
-          </div>
-          <div class="study-state">
-            <span class="state is-review">In review</span>
-            <span class="study-meta">Engine · interactive</span>
+          <div class="axis-body">
+            <p class="axis-kicker">Computational substrates</p>
+            <h3>When the material does part of the thinking.</h3>
+            <p>Voltage, movement, yarn, chemistry or collective behavior is not incidental hardware. Its physics becomes an operation, a memory, a constraint or a language.</p>
+            <ul class="tag-list" aria-label="Example substrate territories">
+              <li>analog circuits</li><li>mechanical systems</li><li>textiles</li><li>robot swarms</li><li>neuromorphic media</li>
+            </ul>
           </div>
         </article>
 
-        <article class="study">
-          <div class="study-id">Study 002</div>
-          <div class="study-body">
-            <h3>When overlapping windows invent predictability</h3>
-            <p>
-              On data with provably no signal, a random split of overlapping
-              windows reports 66.0% accuracy against a 39.8% baseline. A purged
-              split reports 32.9%. One analytical choice, two opposite
-              conclusions — and a closed-form ceiling on how much accuracy the
-              choice can manufacture.
-            </p>
-            <p class="study-limit">
-              Limit — synthetic order-book data. It says nothing about whether
-              any real market is predictable.
-            </p>
+        <article class="axis-card execution-card" data-reveal data-tilt>
+          <div class="axis-topline"><span>Axis B</span><span>Program behavior</span></div>
+          <div class="axis-visual execution-visual" aria-hidden="true">
+            <div class="graph-node node-one">λ</div><div class="graph-node node-two">↺</div><div class="graph-node node-three">∞</div><div class="graph-node node-four">{ }</div>
+            <svg viewBox="0 0 520 260"><path d="M90 82 232 133 422 69M232 133l135 72M90 82l52 133 225-10"/></svg>
           </div>
-          <div class="study-state">
-            <span class="state is-live">Published</span>
-            <span class="study-meta">No engine used</span>
+          <div class="axis-body">
+            <p class="axis-kicker">Alternative execution models</p>
+            <h3>When running a program means something else.</h3>
+            <p>Evaluation can be lazy, parallel, reversible, effect-aware or content-addressed. Different rules change what can be expressed, optimized, inspected and composed.</p>
+            <ul class="tag-list" aria-label="Example execution territories">
+              <li>graph reduction</li><li>interaction nets</li><li>reversible execution</li><li>algebraic effects</li><li>content-addressed code</li>
+            </ul>
           </div>
         </article>
-
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==================== ENGINE ==================== -->
-  <section class="section" id="engine">
-    <div class="shell">
-      <div class="section-head reveal">
-        <p class="label"><span class="n">05</span> &nbsp;/&nbsp; Engine</p>
-        <h2>Where the boundary actually is</h2>
-        <p>
-          Interactive graph rendering in a browser plateaus around a hundred
-          thousand nodes. Native tools reach millions. Closing that gap is a
-          rendering problem, a layout problem and a data problem in roughly
-          equal measure — which is why so few people work on all three.
-        </p>
-      </div>
-
-      <div class="grid-3 reveal">
-        <div class="cell">
-          <h3>Render</h3>
-          <p>
-            A WebGPU compute-and-render core. Typed state in, one draw call out.
-            Verified bit-exact against its CPU reference at zero epsilon, so a
-            result doesn't change when the hardware does.
-          </p>
-          <p class="cell-note">WebGPU · f32 parity under fast-math</p>
+    <section class="instruments section-pad" id="instruments">
+      <div class="instrument-panel" data-reveal>
+        <div class="instrument-copy">
+          <p class="section-number">03 / A recurring practice</p>
+          <h2>Make the mechanism tangible.</h2>
+          <p class="lead">A public computational instrument is not a third research axis. It is how a real substrate or execution model becomes something people can touch, hear, steer or understand.</p>
+          <p>The instrument may be a browser experience, a game, a physical machine or an interactive proof. Its public appeal never substitutes for technical substance.</p>
+          <div class="instrument-rule"><span>mechanism</span><i>→</i><span>instrument</span><i>→</i><span>understanding</span></div>
         </div>
-
-        <div class="cell">
-          <h3>Pipeline</h3>
-          <p>
-            Formats, spatial indexes, chunked streaming and level of detail. The
-            goal is simple to state and awkward to achieve: decouple how much
-            data exists from how much has to be resident.
-          </p>
-          <p class="cell-note">The half nobody demos</p>
-        </div>
-
-        <div class="cell">
-          <h3>Layout</h3>
-          <p>
-            Force-directed layout falls over on high-degree nodes, where a
-            single hub serialises the whole computation. That specific failure
-            is the current object of study.
-          </p>
-          <p class="cell-note">Open problem · in progress</p>
+        <div class="instrument-stage" aria-label="Interactive graph reduction instrument" data-instrument>
+          <div class="stage-label"><span>Reduction grove</span><span data-step>step 00</span></div>
+          <button class="pulse-node pulse-a" type="button" aria-label="Reduce indigo node"><i>λ</i></button>
+          <button class="pulse-node pulse-b" type="button" aria-label="Reduce coral node"><i>+</i></button>
+          <button class="pulse-node pulse-c" type="button" aria-label="Reduce cyan node"><i>x</i></button>
+          <button class="pulse-node pulse-d" type="button" aria-label="Reduce gold node"><i>2</i></button>
+          <svg viewBox="0 0 600 430" aria-hidden="true">
+            <path d="M130 118C219 80 254 164 318 201"/><path d="M318 201c65-4 85-90 152-77"/><path d="M318 201c-48 63-5 111 65 132"/>
+          </svg>
+          <p class="stage-hint">Touch a node. Watch the graph find another shape.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==================== ACADEMY ==================== -->
-  <section class="section" id="academy">
-    <div class="shell">
-      <div class="section-head reveal">
-        <p class="label"><span class="n">06</span> &nbsp;/&nbsp; Academy</p>
-        <h2>Explaining the machinery, once it has earned it</h2>
+    <section class="candidates section-pad" id="candidates">
+      <div class="section-heading" data-reveal>
+        <div>
+          <p class="section-number">04 / Candidate register</p>
+          <h2>Possibilities,<br>not promises.</h2>
+        </div>
+        <p>No flagship has been selected. These cards are candidates awaiting a tournament on mechanism, contribution, feasibility and public experience.</p>
       </div>
 
-      <div class="academy-grid">
-        <div class="prose reveal">
-          <p>
-            Every mechanism we get working has to be explained twice: once in
-            the precise vocabulary that lets a specialist check it, and once in
-            plain language that is still true. If the two versions contradict
-            each other, we don't understand it well enough to publish either.
-          </p>
-          <p>
-            The Academy is where the second version lives — written after the
-            evidence is accepted, never as a substitute for it.
-          </p>
-        </div>
-
-        <div class="ledger reveal">
-          <div class="ledger-row"><span class="lx">01</span><span class="lt">GPU determinism under fast-math</span><span class="ls ok">drafted</span></div>
-          <div class="ledger-row"><span class="lx">02</span><span class="lt">Why a negative test is hard to build honestly</span><span class="ls ok">drafted</span></div>
-          <div class="ledger-row"><span class="lx">03</span><span class="lt">What a specification curve actually shows</span><span class="ls">queued</span></div>
-          <div class="ledger-row"><span class="lx">04</span><span class="lt">Drawing a million points without lying</span><span class="ls">queued</span></div>
-          <div class="ledger-row"><span class="lx">05</span><span class="lt">Thresholds, cascades and long-range links</span><span class="ls">queued</span></div>
-        </div>
+      <div class="candidate-grid">
+        <article class="candidate candidate-violet" data-reveal><span class="candidate-state">Candidate · not active</span><div class="candidate-icon">↔</div><h3>Reversible debugger</h3><p>Step through computation in both directions and expose which operations genuinely lose information.</p><span class="candidate-axis">Execution model</span></article>
+        <article class="candidate candidate-coral" data-reveal><span class="candidate-state">Candidate · not active</span><div class="candidate-icon">≋</div><h3>Analog equation room</h3><p>Patch equations into a live, visible circuit and feel numerical behavior as a continuous physical process.</p><span class="candidate-axis">Substrate + instrument</span></article>
+        <article class="candidate candidate-cyan" data-reveal><span class="candidate-state">Candidate · not active</span><div class="candidate-icon">⌁</div><h3>Parallel reduction lens</h3><p>Make interaction-net reduction inspectable enough to compare what parallelism gives and what it complicates.</p><span class="candidate-axis">Execution model</span></article>
+        <article class="candidate candidate-gold" data-reveal><span class="candidate-state">Candidate · not active</span><div class="candidate-icon">✣</div><h3>Programmable textile</h3><p>Build a textile whose topology, touch and deformation participate in the computation rather than merely housing it.</p><span class="candidate-axis">Substrate</span></article>
       </div>
-    </div>
-  </section>
 
-</main>
+      <div class="tournament" data-reveal>
+        <p class="tournament-label">Selection tournament</p>
+        <ol><li><span>01</span> Is there a real mechanism?</li><li><span>02</span> Can we make a contribution?</li><li><span>03</span> Can we build the smallest honest artifact?</li><li><span>04</span> Does the public experience reveal the mechanism?</li></ol>
+        <p class="tournament-note">Familiarity with Haskell, WebGPU or an existing project gives no automatic advantage.</p>
+      </div>
+    </section>
 
-<footer class="colophon">
-  <div class="shell colophon-grid">
-    <div>
-      <p class="label" style="margin-bottom:1rem">Lathilda</p>
-      <p>
-        Independent research on large-scale visual computing, the data
-        engineering beneath it, and what becomes answerable once the looking
-        gets cheap. Work is published when it is finished and its limits are
-        written down — and not before.
-      </p>
-      <p class="legal">Madrid · 40.4168° N / 3.7038° W</p>
-    </div>
-    <div class="links">
-      <a href="https://joshuadefreitas.github.io">Joshua de Freitas</a>
-      <a href="https://github.com/joshuadefreitas">GitHub</a>
-      <a href="#question">Method</a>
-      <a href="#studies">Studies</a>
-    </div>
-  </div>
-</footer>
+    <section class="heritage section-pad" id="heritage">
+      <div class="section-heading" data-reveal>
+        <div><p class="section-number">05 / Preserved systems</p><h2>Built before.<br>Still real.</h2></div>
+        <p>The new identity does not rewrite the past. These systems keep their own histories, questions and review states.</p>
+      </div>
+      <div class="heritage-grid">
+        <a class="heritage-card engine-card" href="https://github.com/Lathilda/forge" data-reveal>
+          <div class="heritage-meta"><span>Maintained asset</span><span>GitHub ↗</span></div>
+          <div class="engine-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <h3>Lathilda Engine</h3>
+          <p>A reusable GPU compute-and-render system. It remains powerful infrastructure, not the laboratory thesis and not a required dependency.</p>
+          <div class="heritage-tags"><span>WebGPU</span><span>compute</span><span>rendering</span></div>
+        </a>
+        <a class="heritage-card emergence-card" href="https://github.com/Lathilda/emergence" data-reveal>
+          <div class="heritage-meta"><span>Independent study</span><span>GitHub ↗</span></div>
+          <div class="emergence-field" aria-hidden="true"></div>
+          <h3>EMERGENCE</h3>
+          <p>A deterministic cascade study with its own project-local evidence and review state. Preserved, not retrofitted as proof of the new charter.</p>
+          <div class="heritage-tags"><span>simulation</span><span>cascade fields</span><span>determinism</span></div>
+        </a>
+      </div>
+    </section>
 
-<script>
-(function () {
-  "use strict";
+    <section class="invitation section-pad">
+      <div class="invitation-orb" aria-hidden="true"></div>
+      <div class="invitation-copy" data-reveal>
+        <p class="section-number">06 / Open laboratory</p>
+        <h2>There are more kinds<br>of computer to discover.</h2>
+        <p>We are building the foundation now. Follow the work, inspect the systems, or return when the first candidate survives selection.</p>
+        <a class="button button-dark" href="https://github.com/Lathilda">Explore Lathilda on GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
 
-  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#top"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M7 24.5c0-8.4 5.6-15.2 13.8-15.2 7.2 0 12.2 4.7 12.2 11.5 0 7.4-5.4 12.5-13.3 12.5-4.7 0-8.9-2.2-11.2-5.8 5.8 1.8 13 .5 16.2-4.2 2.4-3.7.7-7.8-3.4-8.4-4.8-.7-8.3 3.2-8.3 8.2 0 .6 0 1 .1 1.4H7Z"/><circle cx="27.8" cy="15.2" r="2.2"/></svg><span>Lathilda</span></a>
+    <p>Alternative computation · Madrid / The Netherlands</p>
+    <div><a href="https://github.com/Lathilda">GitHub</a><a href="https://joshuadefreitas.github.io">Founder</a><a href="#top">Back to top ↑</a></div>
+  </footer>
 
-  document.getElementById("theme").addEventListener("click", function () {
-    var root = document.documentElement;
-    var cur = root.getAttribute("data-theme");
-    if (!cur) cur = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-    var next = cur === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    try { localStorage.setItem("lathilda-theme", next); } catch (e) { /* ignore */ }
-  });
-
-  /* Reveals are pure CSS (view timeline). Script only drives instruments,
-     so nothing here can leave content invisible. */
-
-  function token(name, fallback) {
-    var v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-    return v || fallback;
-  }
-
-  function hexToRgb(h) {
-    h = h.replace("#", "");
-    if (h.length === 3) h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
-    var n = parseInt(h, 16);
-    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
-  }
-
-  function sized(canvas) {
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var ctx = canvas.getContext("2d");
-    function fit() {
-      var w = canvas.clientWidth || 600, h = canvas.clientHeight || 300;
-      canvas.width = Math.round(w * dpr);
-      canvas.height = Math.round(h * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      return { w: w, h: h, dpr: dpr };
-    }
-    return { ctx: ctx, fit: fit };
-  }
-
-  /* ======================================================================
-     Instrument 1 — density field
-
-     A Clifford attractor plotted directly into an ImageData buffer, which
-     is how you draw hundreds of thousands of points per frame without a
-     GPU. Density accumulates per pixel and is mapped through the signal
-     colour. The readout reports the real point count and the real frame
-     cost — if the frame budget is missed, the shortfall is reported as
-     dropped points rather than quietly hidden.
-     ===================================================================== */
-  (function () {
-    var canvas = document.getElementById("field");
-    if (!canvas || !canvas.getContext) return;
-
-    var s = sized(canvas), ctx = s.ctx, size = s.fit();
-    var N = 260000;
-    var img = null, buf = null, dens = null;
-    var elPts = document.getElementById("f-pts"),
-        elMs = document.getElementById("f-ms"),
-        elPeak = document.getElementById("f-peak");
-
-    var a = -1.7, b = 1.8, c = -0.9, d = -0.4, phase = 0;
-
-    function alloc() {
-      var W = canvas.width, H = canvas.height;
-      img = ctx.createImageData(W, H);
-      buf = img.data;
-      dens = new Uint32Array(W * H);
-    }
-
-    alloc();
-    window.addEventListener("resize", function () { size = s.fit(); alloc(); render(); });
-
-    function render() {
-      var W = canvas.width, H = canvas.height;
-      var t0 = performance.now();
-
-      dens.fill(0);
-
-      var x = 0.1, y = 0.1, nx, ny;
-      var sc = Math.min(W, H) / 4.6;
-      var ox = W / 2, oy = H / 2;
-      var max = 1;
-
-      for (var i = 0; i < N; i++) {
-        nx = Math.sin(a * y) + c * Math.cos(a * x);
-        ny = Math.sin(b * x) + d * Math.cos(b * y);
-        x = nx; y = ny;
-        var px = (x * sc + ox) | 0, py = (y * sc + oy) | 0;
-        if (px < 0 || py < 0 || px >= W || py >= H) continue;
-        var k = py * W + px;
-        var v = ++dens[k];
-        if (v > max) max = v;
-      }
-
-      var rgb = hexToRgb(token("--signal", "#f2a63d"));
-      var lossRgb = hexToRgb(token("--loss", "#b05740"));
-      var lightTheme = token("--ground", "#08090c").toLowerCase() !== "#08090c";
-      var inv = 1 / Math.log(max + 1);
-
-      for (var p = 0, q = 0; p < dens.length; p++, q += 4) {
-        var dv = dens[p];
-        if (!dv) { buf[q + 3] = 0; continue; }
-        var t = Math.log(dv + 1) * inv;
-        var e = Math.pow(t, 0.55);
-        /* low density leans toward the loss hue, high density toward signal:
-           the colour encodes how much evidence sits under each pixel */
-        var mix = Math.min(1, e * 1.5);
-        buf[q]     = lossRgb[0] + (rgb[0] - lossRgb[0]) * mix;
-        buf[q + 1] = lossRgb[1] + (rgb[1] - lossRgb[1]) * mix;
-        buf[q + 2] = lossRgb[2] + (rgb[2] - lossRgb[2]) * mix;
-        buf[q + 3] = Math.min(255, 40 + e * 235) * (lightTheme ? 0.85 : 1);
-      }
-
-      ctx.setTransform(1, 0, 0, 1, 0, 0);
-      ctx.clearRect(0, 0, W, H);
-      ctx.putImageData(img, 0, 0);
-      ctx.setTransform(size.dpr, 0, 0, size.dpr, 0, 0);
-
-      var ms = performance.now() - t0;
-      elPts.textContent = N.toLocaleString("en-GB");
-      elMs.textContent = ms.toFixed(1) + " ms";
-      elPeak.textContent = max.toLocaleString("en-GB");   /* deepest pixel: real, measured */
-    }
-
-    var running = false, lastT = 0;
-
-    function frame(t) {
-      if (!lastT) lastT = t;
-      var dt = Math.min(t - lastT, 50); lastT = t;
-      phase += dt * 0.00006;
-      a = -1.7 + Math.sin(phase) * 0.22;
-      b = 1.8 + Math.cos(phase * 0.83) * 0.2;
-      c = -0.9 + Math.sin(phase * 0.61) * 0.16;
-      render();
-      if (running) requestAnimationFrame(frame);
-    }
-
-    function start() { if (running || reduced.matches || document.hidden) return; running = true; lastT = 0; requestAnimationFrame(frame); }
-    function stop() { running = false; }
-
-    render();   /* never show an empty instrument */
-
-    if (!reduced.matches && "IntersectionObserver" in window) {
-      new IntersectionObserver(function (e) { e[0].isIntersecting ? start() : stop(); }).observe(canvas);
-    } else if (!reduced.matches) { start(); }
-
-    document.addEventListener("visibilitychange", function () { document.hidden ? stop() : start(); });
-  })();
-
-  /* ======================================================================
-     Instrument 2 — specification curve
-
-     2,048 model specifications, each a plausible analytical choice, sorted
-     by estimated effect. Deterministic and illustrative: it shows the shape
-     of a specification space, not a finding.
-     ===================================================================== */
-  (function () {
-    var canvas = document.getElementById("spec");
-    if (!canvas || !canvas.getContext) return;
-
-    var s = sized(canvas), ctx = s.ctx, size = s.fit();
-    var K = 2048, specs = [], seed = 0x2f6b31;
-
-    function rnd() {
-      seed ^= seed << 13; seed ^= seed >>> 17; seed ^= seed << 5;
-      return ((seed >>> 0) % 1000000) / 1000000;
-    }
-
-    function gauss() { return (rnd() + rnd() + rnd() + rnd() - 2) * 0.85; }
-
-    for (var i = 0; i < K; i++) {
-      var est = 0.22 + gauss() * 0.42;
-      specs.push({ est: est, se: 0.13 + rnd() * 0.1 });
-    }
-    specs.sort(function (p, q) { return p.est - q.est; });
-
-    window.addEventListener("resize", function () { size = s.fit(); draw(); });
-
-    function draw() {
-      var w = size.w, h = size.h;
-      var padL = 46, padR = 14, padT = 16, padB = 26;
-      var iw = w - padL - padR, ih = h - padT - padB;
-      var signal = token("--signal", "#f2a63d");
-      var loss = token("--loss", "#b05740");
-      var line = token("--line", "#1a1d23");
-      var ink3 = token("--ink-3", "#615f5c");
-
-      var lo = -1.05, hi = 1.35;
-      function yOf(v) { return padT + ih - ((v - lo) / (hi - lo)) * ih; }
-
-      ctx.clearRect(0, 0, w, h);
-
-      /* zero line — the decision boundary the whole plot is about */
-      ctx.strokeStyle = line; ctx.lineWidth = 1;
-      [-1, -0.5, 0.5, 1].forEach(function (g) {
-        var y = Math.round(yOf(g)) + 0.5;
-        ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(w - padR, y); ctx.stroke();
-      });
-
-      ctx.font = "9px ui-monospace, SFMono-Regular, Menlo, monospace";
-      ctx.fillStyle = ink3;
-      ctx.textAlign = "right";
-      [-1, 0, 1].forEach(function (g) { ctx.fillText(g.toFixed(0), padL - 8, yOf(g) + 3); });
-
-      /* the specifications */
-      for (var i = 0; i < K; i++) {
-        var sp = specs[i];
-        var x = padL + (i / (K - 1)) * iw;
-        var crosses = (sp.est - sp.se * 1.96) <= 0;
-        ctx.globalAlpha = crosses ? 0.5 : 0.85;
-        ctx.strokeStyle = crosses ? loss : signal;
-        ctx.lineWidth = Math.max(0.6, iw / K);
-        ctx.beginPath();
-        ctx.moveTo(x, yOf(sp.est - sp.se));
-        ctx.lineTo(x, yOf(sp.est + sp.se));
-        ctx.stroke();
-      }
-      ctx.globalAlpha = 1;
-
-      var yz = Math.round(yOf(0)) + 0.5;
-      ctx.strokeStyle = token("--ink-2", "#94918c");
-      ctx.lineWidth = 1;
-      ctx.setLineDash([4, 4]);
-      ctx.beginPath(); ctx.moveTo(padL, yz); ctx.lineTo(w - padR, yz); ctx.stroke();
-      ctx.setLineDash([]);
-
-      var nNull = specs.filter(function (p) { return (p.est - p.se * 1.96) <= 0; }).length;
-      ctx.textAlign = "left";
-      ctx.fillStyle = ink3;
-      ctx.fillText(Math.round((nNull / K) * 100) + "% cross zero", padL + 4, padT + 11);
-    }
-
-    draw();
-  })();
-})();
-</script>
-
+  <script src="site.js" defer></script>
 </body>
 </html>
